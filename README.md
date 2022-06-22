@@ -29,7 +29,7 @@
 1 | 회원 목록(getMemberList())
 2 | 회원 등록(insertMember())
 3 | 회원 수정(updateMember())
-4 |회원 삭제(deleteMember())
+4 | 회원 삭제(deleteMember())
 0 | 프로그램 종료
 ```
 9. 사용자가 1번 메뉴를 입력했을 때, 회원목록을 출력할 getMemberList() 메소드를 구현한다.
