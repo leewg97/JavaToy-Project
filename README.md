@@ -1,7 +1,38 @@
-# Java Programming Toy Project
-## A membership program using Java
-> Process : FastCampus KDT Fintech Service Back-end
+# Java 프로그래밍 Toy 프로젝트
+## Java를 이용한 회원관리 프로그램
+> 과정명: 패스트 캠퍼스 KDT 핀테크 서비스 백엔드 개발 과정(2기)
 
-## Project Description
-> It is a program that stores and manages member information input by a user in a database.
+## 프로젝트 설명
 
+우리가 개발하는 대부분의 애플리케이션은 Oracle 같은 DBMS를 연동하여 사용자가 입력한 데이터를 저장하고 관리한다. 이번 토이 프로젝트에서는 사용자가 입력한 회원 정보를 데이터베이스에 저장하고 관리하는 회원관리 프로그램을 개발하고자 한다. 이 토이 프로젝트를 통해 클래스에 대한 설계와 String 클래스가 제공하는 API, 입출력, 그리고 기본적인 SQL을 비롯한 JDBC 프로그램을 점검할 수 있을 것이다. 
+
+## 프로젝트 구현 가이드
+
+### 테이블 설계
+다음을 참조하여 H2 데이터베이스에 회원(MEMBER) 테이블을 생성한다. 
+1. MEMBER 테이블에 저장할 정보는 회원의 아이디(MEMBER_ID), 회원 이름(NAME), 그리고 전화번호(PHONE_NUMBER)다.
+2. 각 컬럼에 적절한 제약 조건을 설정한다.
+
+### Member 클래스 구현
+3. 사용자가 입력한 회원 정보를 저장할 수 있도록 private 멤버변수(필드)를 선언한다.
+4. private 멤버 필드에 접근하기 위한 Getter 메소드와 Setter 메소드를 선언하고, Member 객체의 상태를 문자열로 리턴하는 toString() 메소드를 재정의(Overriding)한다
+
+### MemberDAO 클래스 구현
+5. Connection 객체를 획득하고, 사용한 Connection 객체를 종료(close)하는 Utility 클래스를 작성한다.
+6. MemberDAO 클래스를 작성하고 회원등록(5점), 회원 수정(5점), 회원 삭제(5점), 회원 상세 조회(5점), 회원 목록 검색(5점) 기능의 메소드를 각각 구현한다.
+
+### MemberManager 클래스 구현
+7. MemberDAO와 사용자가 키보드를 통해 입력한 데이터를 읽어들이는 입력 스트림을 멤버변수(필드)로 선언하고, 멤버번수를 초기화하는 생성자를 작성한다.
+8. 무한루프를 돌면서 사용자가 입력한 메뉴 정보를 읽어들이는 readMenu() 메소드를 구현한다. readMenu() 메소드에서는 사용자가 입력한 숫자에 따라 다음과 같이 분기처리한다.
+```
+선택한 번호 | 실행할 기능(호출할 메소드)
+1 | 회원 목록(getMemberList())
+2 | 회원 등록(insertMember())
+3 | 회원 수정(updateMember())
+4 |회원 삭제(deleteMember())
+0 | 프로그램 종료
+```
+9. 사용자가 1번 메뉴를 입력했을 때, 회원목록을 출력할 getMemberList() 메소드를 구현한다.
+10. 사용자가 2번 메뉴를 입력했을 때, 회원가입을 처리할 insertMember() 메소드를 구현한다.
+11. 사용자가 3번 메뉴를 입력했을 때, 회원수정을 처리할 updateMember() 메소드를 구현한다.
+12. 사용자가 4번 메뉴를 입력했을 때, 회원삭제를 처리할 deleteMember() 메소드를 구현한다.
